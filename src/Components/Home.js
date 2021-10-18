@@ -10,21 +10,28 @@ const Home = () => {
   return (
     <Container>
       <Section
-        title={'Model s'}
+        title={'Model S'}
         description="order inline for touchless delivery"
         backgroundImg="model-s.jpg"
         leftBtnText="Custom order"
         rightBtnText="Existing inventory"
       />
       <Section
-        title={'Model x'}
+        title={'Model 3'}
+        description="order inline for touchless delivery"
+        backgroundImg="model-3.jpg"
+        leftBtnText="Custom order"
+        rightBtnText="Existing inventory"
+      />
+      <Section
+        title={'Model X'}
         description="order inline for touchless delivery"
         backgroundImg="model-x.jpg"
         leftBtnText="Custom order"
         rightBtnText="Existing inventory"
       />
       <Section
-        title={'Model y'}
+        title={'Model Y'}
         description="order inline for touchless delivery"
         backgroundImg="model-y.jpg"
         leftBtnText="Custom order"
