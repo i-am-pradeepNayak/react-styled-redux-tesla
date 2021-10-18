@@ -1,6 +1,13 @@
 import { MenuRounded } from '@mui/icons-material';
-import { Icon, IconButton } from '@mui/material';
-import React from 'react';
+import {
+  Drawer,
+  Icon,
+  IconButton,
+  List,
+  ListItemButton,
+  ListItemText
+} from '@mui/material';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -49,6 +56,7 @@ const CustomMenu = styled(MenuRounded)`
 `;
 
 const Header = () => {
+  const [Toggle, setToggle] = useState(false);
   return (
     <Container>
       <a>
@@ -65,14 +73,48 @@ const Header = () => {
           <a href="#">Models X</a>
         </p>
         <p>
-          <a href="#">Models X</a>
+          <a href="#">Models Y</a>
         </p>
       </Menu>
       <RightMenu>
         <a href="#">Shop</a>
         <a href="#">Tesla account</a>
       </RightMenu>
-      <CustomMenu />
+      <Drawer
+        variant="temporary"
+        open={Toggle}
+        anchor="right"
+        onClose={() => setToggle(!Toggle)}
+      >
+        <List>
+          <ListItemButton sx={{ borderBottom: '2px solid black' }}>
+            <ListItemText
+              primary="Model S"
+              sx={{ width: 300, textAlign: 'center' }}
+            />
+          </ListItemButton>
+          <ListItemButton sx={{ borderBottom: '2px solid black' }}>
+            <ListItemText
+              primary="Model 3"
+              sx={{ width: 300, textAlign: 'center' }}
+            />
+          </ListItemButton>
+          <ListItemButton sx={{ borderBottom: '2px solid black' }}>
+            <ListItemText
+              primary="Model X"
+              sx={{ width: 300, textAlign: 'center' }}
+            />
+          </ListItemButton>
+          <ListItemButton sx={{ borderBottom: '2px solid black' }}>
+            <ListItemText
+              primary="Model Y"
+              sx={{ width: 300, textAlign: 'center' }}
+            />
+          </ListItemButton>
+        </List>
+      </Drawer>
+
+      <CustomMenu onClick={() => setToggle(!Toggle)} />
     </Container>
   );
 };
