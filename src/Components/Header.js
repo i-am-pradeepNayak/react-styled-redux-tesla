@@ -8,6 +8,7 @@ import {
   ListItemText
 } from '@mui/material';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -56,25 +57,22 @@ const CustomMenu = styled(MenuRounded)`
 `;
 
 const Header = () => {
+  const carModel = useSelector(state => state.SliceReducer.cars);
+  console.log(carModel);
   const [Toggle, setToggle] = useState(false);
   return (
     <Container>
       <a>
         <img src="/images/logo.svg"></img>
       </a>
+
       <Menu>
-        <p>
-          <a href="#">Models S</a>
-        </p>
-        <p>
-          <a href="#">Models 3</a>
-        </p>
-        <p>
-          <a href="#">Models X</a>
-        </p>
-        <p>
-          <a href="#">Models Y</a>
-        </p>
+        {carModel &&
+          carModel.map(model => (
+            <p>
+              <a href="#">{model}</a>
+            </p>
+          ))}
       </Menu>
       <RightMenu>
         <a href="#">Shop</a>
